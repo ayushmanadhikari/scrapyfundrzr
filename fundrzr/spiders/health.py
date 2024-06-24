@@ -39,10 +39,4 @@ class HealthSpider(scrapy.Spider):
         
         item['master_story'] = master_story_string
 
-
-        #getting stories
-        total = ""
-        # for story in item['master_story']:
-        #     total = total+story.strip()
-
         yield item
