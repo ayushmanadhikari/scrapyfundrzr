@@ -12,7 +12,6 @@ BOT_NAME = "fundrzr"
 SPIDER_MODULES = ["fundrzr.spiders"]
 NEWSPIDER_MODULE = "fundrzr.spiders"
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 
@@ -26,7 +25,11 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
+<<<<<<< HEAD
 #DOWNLOAD_DELAY = 3
+=======
+DOWNLOAD_DELAY = 3
+>>>>>>> db1753c (updated)
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -51,9 +54,10 @@ COOKIES_ENABLED = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "fundrzr.middlewares.FundrzrDownloaderMiddleware": 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    #"fundrzr.middlewares.FundrzrDownloaderMiddleware": 543,
+    'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html

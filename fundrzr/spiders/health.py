@@ -11,10 +11,17 @@ class HealthSpider(scrapy.Spider):
         next_page = response.xpath('//a[text()="Next →"]/@href').get()
 
         #following next page
+<<<<<<< HEAD
         # if next_page is not None:
         #     print("following next page..........")
         #     print(next_page)
         #     yield response.follow(next_page, callback = self.parse)
+=======
+        if next_page is not None:
+            print("following next page..........")
+            print(next_page)
+            yield response.follow(next_page, callback = self.parse)
+>>>>>>> db1753c (updated)
 
 
         #following indv capaign url
@@ -31,11 +38,25 @@ class HealthSpider(scrapy.Spider):
         item['amount_raised'] = response.xpath('//span[@class="donation-count stat"]/text()').get().strip()
         item['days_running'] = response.xpath('//span[@class="stat"]/text()').get().strip()
         item['author'] = response.xpath('//a[@title="View profile"]/text()').get().strip()
+<<<<<<< HEAD
         item['master_story'] = response.xpath('//div[@id="master-story"]/p/text()').getall()
+=======
+        master_story = response.xpath('//div[@id="master-story"]/p/text()').getall()
+        
+        master_story_string = ""
+        for story in master_story:
+           master_story_string = master_story_string + story.strip()
+        
+        item['master_story'] = master_story_string
+
+<<<<<<< HEAD
+>>>>>>> db1753c (updated)
 
         #getting stories
         total = ""
         # for story in item['master_story']:
         #     total = total+story.strip()
 
+=======
+>>>>>>> be54c3c (thirrd)
         yield item
